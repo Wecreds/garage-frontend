@@ -1,7 +1,6 @@
 <template>
   <main>
-    <p>Olá</p>
-    <button class="bg-black text-white">Botão</button>
+    <h1>Projeto Garagem HomeView</h1>
   </main>
 </template>
 <script setup>
