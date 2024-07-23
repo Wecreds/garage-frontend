@@ -1,3 +1,3 @@
-import axios from 'axios'
+import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5174/api";
+axios.defaults.baseURL = "http://localhost:8000/api";

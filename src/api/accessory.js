@@ -4,16 +4,16 @@ export default class AccessoryApi {
     const { data } = await axios.get("/accessories/");
     return data.results;
   }
-  async addAccessory(category) {
-    const { data } = await axios.post("/categories/", category);
+  async addAccessory(accessory) {
+    const { data } = await axios.post("/accessories/", accessory);
     return data.results;
   }
-  async updateAccessory(category) {
-    const { data } = await axios.put(`/categories/${category.id}/`, category);
+  async updateAccessory(accessory) {
+    const { data } = await axios.put(`/accessories/${accessory.id}/`, accessory);
     return data.results;
   }
   async delAccessory(id) {
-    const { data } = await axios.delete(`/categories/${id}/`);
+    const { data } = await axios.delete(`/accessories/${id}/`);
     return data.results;
   }
 }
