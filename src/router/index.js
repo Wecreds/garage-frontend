@@ -19,6 +19,11 @@ const router = createRouter({
       component: () => import('@/views/CategoryView.vue')
     },
     {
+      path: '/colors',
+      name: 'color',
+      component: () => import('@/views/ColorView.vue')
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/LoginView.vue')

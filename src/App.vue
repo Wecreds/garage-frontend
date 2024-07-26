@@ -3,7 +3,8 @@
     <div class="bg-gray-100">
       <router-link to="/">Home</router-link> -
       <router-link to="/accessories">Acessórios</router-link> - 
-      <router-link to="/categories">Categorias</router-link>
+      <router-link to="/categories">Categorias</router-link> - 
+      <router-link to="/colors">Cores</router-link>
       <br>
       <div v-if="authStore.loggedIn">
       <router-link  to="/logout">Logout</router-link> |
