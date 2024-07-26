@@ -6,44 +6,54 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/HomeView.vue'),
-      meta: { requiresAuth: true }
+      name: 'fullLayout',
+      component: () => import('@/layouts/FullLayout.vue'),
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: () => import('@/views/HomeView.vue'),
+        },
+        {
+          path: '/accessories',
+          name: 'accessory',
+          component: () => import('@/views/AccessoryView.vue'),
+        },
+        {
+          path: '/categories',
+          name: 'category',
+          component: () => import('@/views/CategoryView.vue'),
+        },
+        {
+          path: '/colors',
+          name: 'color',
+          component: () => import('@/views/ColorView.vue'),
+        },
+        {
+          path: '/brands',
+          name: 'brand',
+          component: () => import('@/views/BrandView.vue'),
+        },
+      ],
     },
     {
-      path: '/accessories',
-      name: 'accessory',
-      component: () => import('@/views/AccessoryView.vue'),
-      meta: { requiresAuth: true }
+      path: '/',
+      name: 'blankLayout',
+      component: () => import('@/layouts/BlankLayout.vue'),
+      children: [
+        {
+          path: '/login',
+          name: 'login',
+          component: () => import('@/views/LoginView.vue')
+        },
+        {
+          path: '/logout',
+          name: 'logout',
+          component: () => import('@/views/LogoutView.vue')
+        }
+      ],
     },
-    {
-      path: '/categories',
-      name: 'category',
-      component: () => import('@/views/CategoryView.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/colors',
-      name: 'color',
-      component: () => import('@/views/ColorView.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/brands',
-      name: 'brand',
-      component: () => import('@/views/BrandView.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/LoginView.vue')
-    },
-    {
-      path: '/logout',
-      name: 'logout',
-      component: () => import('@/views/LogoutView.vue')
-    }
   ]
 })
 
