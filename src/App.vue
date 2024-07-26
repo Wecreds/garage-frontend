@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> -
       <router-link to="/accessories">Acessórios</router-link> - 
       <router-link to="/categories">Categorias</router-link> - 
-      <router-link to="/colors">Cores</router-link>
+      <router-link to="/colors">Cores</router-link> - 
+      <router-link to="/brands">Marcas</router-link>
       <br>
       <div v-if="authStore.loggedIn">
       <router-link  to="/logout">Logout</router-link> |
