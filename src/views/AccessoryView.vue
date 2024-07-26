@@ -9,7 +9,7 @@
    <hr class="m-2">
    <ul>
         <li v-for="accessory in accessories" :key="accessory.id">
-            <span @click="editAccessorry(accessory)">
+            <span @click="editAccessory(accessory)">
                 {{ accessory.id }} - {{ accessory.desc }}
             </span>
             <button @click="delAccessory(accessory.id)">Excluir</button>
@@ -39,7 +39,7 @@ const saveAccessory = async() => {
     cleanQuery();
 };
 
-const editAccessorry = async(refAccessory) => {
+const editAccessory = async(refAccessory) => {
     Object.assign(accessory, refAccessory);
 };
 

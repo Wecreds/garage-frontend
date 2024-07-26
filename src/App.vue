@@ -2,7 +2,9 @@
   <div class="bg-white min-h-screen x-screen p-4">
     <div class="bg-gray-100">
       <router-link to="/">Home</router-link> -
-      <router-link to="/accessories">Acessórios</router-link>
+      <router-link to="/accessories">Acessórios</router-link> - 
+      <router-link to="/categories">Categorias</router-link>
+      <br>
       <div v-if="authStore.loggedIn">
       <router-link  to="/logout">Logout</router-link> |
         {{ authStore.user.email }}
