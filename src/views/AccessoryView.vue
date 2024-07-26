@@ -50,6 +50,6 @@ const editAccessorry = async(refAccessory) => {
 
 const delAccessory = async(id) => {
     await accessoryApi.delAccessory(id);
-    accessories.value = await accessory.fetchAllAccessories();
+    accessories.value = await accessoryApi.fetchAllAccessories();
 };
 </script>
