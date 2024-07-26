@@ -17,30 +17,25 @@
    </ul>
 </template>
 <script setup>
-import { ref, reactive, onMounted } from "vue";
-import AccessoryApi from "@/api/accessory";
-const accessoryApi = new AccessoryApi();
+import { reactive, computed, onMounted } from "vue";
+import { useAccessoryStore } from '@/stores/accessory';
+
+const accessoryStore = useAccessoryStore(); 
 
 const defaultAccessory = { id: null, desc: ""};
-const accessories = ref([]);
 const accessory = reactive({...defaultAccessory});
-
-onMounted(async () => {
-    accessories.value = await accessoryApi.fetchAllAccessories();
-    console.log(accessories.value);
-});
+const accessories = computed(() => {return accessoryStore.accessories});
 
 const cleanQuery = () => {
     Object.assign(accessory, { ...defaultAccessory});
 };
 
+const delAccessory = async(id) => {
+    await accessoryStore.delAccessory(id);
+};
+
 const saveAccessory = async() => {
-    if (accessory.id) {
-        await accessoryApi.updateAccessory(accessory);
-    } else {
-        await accessoryApi.addAccessory(accessory);
-    }
-    accessories.value = await accessoryApi.fetchAllAccessories();
+    await accessoryStore.saveAccessory(accessory);
     cleanQuery();
 };
 
@@ -48,8 +43,7 @@ const editAccessorry = async(refAccessory) => {
     Object.assign(accessory, refAccessory);
 };
 
-const delAccessory = async(id) => {
-    await accessoryApi.delAccessory(id);
-    accessories.value = await accessoryApi.fetchAllAccessories();
-};
+onMounted(() => {
+    accessoryStore.fetchAllAccessories();
+});
 </script>
