@@ -7,7 +7,7 @@
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
-    <ul>
+    <ul class="flex justify-around flex-col md:flex-row">
          <li v-for="color in colors" :key="color.id">
              <span @click="editColor(color)">
                  {{ color.id }} - {{ color.name }}

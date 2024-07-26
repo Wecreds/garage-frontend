@@ -8,7 +8,7 @@
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
-    <ul>
+    <ul class="flex justify-around flex-col md:flex-row">
          <li v-for="brand in brands" :key="brand.id">
              <span @click="editBrand(brand)">
                  {{ brand.id }} - {{ brand.name }} - {{ brand.nationality }}

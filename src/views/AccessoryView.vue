@@ -7,7 +7,7 @@
         <button @click="cleanQuery()">Limpar</button>
    </div>
    <hr class="m-2">
-   <ul>
+   <ul class="flex justify-around flex-col md:flex-row">
         <li v-for="accessory in accessories" :key="accessory.id">
             <span @click="editAccessory(accessory)">
                 {{ accessory.id }} - {{ accessory.desc }}

@@ -7,7 +7,7 @@
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
-    <ul>
+    <ul class="flex justify-around flex-col md:flex-row">
          <li v-for="category in categories" :key="category.id">
              <span @click="editCategory(category)">
                  {{ category.id }} - {{ category.desc }}
