@@ -3,7 +3,7 @@
     <hr class="m-2"/>
     <div>
          <input type="text" v-model="color.name" placeholder="Nome da cor">
-         <button @click="saveColor()">Salvar</button>
+         <button @click="saveColor()">Salvar</button> -
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
@@ -11,7 +11,7 @@
          <li v-for="color in colors" :key="color.id">
              <span @click="editColor(color)">
                  {{ color.id }} - {{ color.name }}
-             </span>
+             </span> -
              <button @click="delColor(color.id)">Excluir</button>
          </li>
     </ul>

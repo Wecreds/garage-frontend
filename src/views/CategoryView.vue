@@ -3,7 +3,7 @@
     <hr class="m-2"/>
     <div>
          <input type="text" v-model="category.desc" placeholder="Descrição">
-         <button @click="saveCategory()">Salvar</button>
+         <button @click="saveCategory()">Salvar</button> -
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
@@ -11,7 +11,7 @@
          <li v-for="category in categories" :key="category.id">
              <span @click="editCategory(category)">
                  {{ category.id }} - {{ category.desc }}
-             </span>
+             </span> -
              <button @click="delCategory(category.id)">Excluir</button>
          </li>
     </ul>

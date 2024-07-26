@@ -3,7 +3,7 @@
    <hr class="m-2"/>
    <div>
         <input type="text" v-model="accessory.desc" placeholder="Descrição">
-        <button @click="saveAccessory()">Salvar</button>
+        <button @click="saveAccessory()">Salvar</button> - 
         <button @click="cleanQuery()">Limpar</button>
    </div>
    <hr class="m-2">
@@ -11,7 +11,7 @@
         <li v-for="accessory in accessories" :key="accessory.id">
             <span @click="editAccessory(accessory)">
                 {{ accessory.id }} - {{ accessory.desc }}
-            </span>
+            </span> - 
             <button @click="delAccessory(accessory.id)">Excluir</button>
         </li>
    </ul>

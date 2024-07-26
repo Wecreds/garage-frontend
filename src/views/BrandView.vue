@@ -4,7 +4,7 @@
     <div>
          <input type="text" v-model="brand.name" placeholder="Nome"> | 
          <input type="text" v-model="brand.nationality" placeholder="Nacionalidade">
-         <button @click="saveBrand()">Salvar</button>
+         <button @click="saveBrand()">Salvar</button> -
          <button @click="cleanQuery()">Limpar</button>
     </div>
     <hr class="m-2">
@@ -12,7 +12,7 @@
          <li v-for="brand in brands" :key="brand.id">
              <span @click="editBrand(brand)">
                  {{ brand.id }} - {{ brand.name }} - {{ brand.nationality }}
-             </span>
+             </span> -
              <button @click="delBrand(brand.id)">Excluir</button>
          </li>
     </ul>
