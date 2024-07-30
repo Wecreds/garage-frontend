@@ -1,7 +1,7 @@
 import axios from "axios";
 export default class BrandApi {
-  async fetchAllBrands() {
-    const { data } = await axios.get("/brands/");
+  async fetchBrandsByPage(page) {
+    const { data } = await axios.get(`/brands/?page=${page}`);
     return data;
   }
   async addBrand(brand) {

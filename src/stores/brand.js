@@ -6,10 +6,12 @@ const brandApi = new BrandApi();
 
 export const useBrandStore = defineStore('brand', () => {
     const brands = ref([]);
+    const totalPages = ref(1);
 
-    const fetchAllBrands = async() => {
-        const data = await brandApi.fetchAllBrands();
+    const fetchBrandsByPage = async(page) => {
+        const data = await brandApi.fetchBrandsByPage(page);
         brands.value = data.results;
+        totalPages.value = /*Math.ceil(data.count / 10)*/ data.count
     };
 
     const saveBrand = async (brand) => {
@@ -18,15 +20,15 @@ export const useBrandStore = defineStore('brand', () => {
         } else {
             await brandApi.addBrand(brand);
         };
-        fetchAllBrands();
+        fetchBrandsByPage();
     };
 
     const delBrand = async (id) => {
         await brandApi.delBrand(id);
-        fetchAllBrands();
+        fetchBrandsByPage();
     };
 
-    fetchAllBrands()
+    fetchBrandsByPage()
 
-    return { brands, fetchAllBrands, saveBrand, delBrand }
+    return { totalPages, brands, fetchBrandsByPage, saveBrand, delBrand }
 });

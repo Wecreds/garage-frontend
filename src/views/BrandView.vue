@@ -16,16 +16,41 @@
              <button @click="delBrand(brand.id)">Excluir</button>
          </li>
     </ul>
+    <PageSelectorComponent :currentPage="currentPage" @nextPage="nextPage()" @previousPage="previousPage()" :totPages="totPages" @selectedPage="handleSelectedPage"/>
  </template>
  <script setup>
- import { reactive, computed, onMounted } from "vue";
+ import { reactive, computed, onMounted, ref } from "vue";
+
+ import PageSelectorComponent from "@/components/PageSelectorComponent.vue";
  import { useBrandStore } from '@/stores/brand';
  
- const brandStore = useBrandStore(); 
+ const brandStore = useBrandStore();
  
  const defaultBrand = { id: null, name: "", nationality: ""};
  const brand = reactive({...defaultBrand});
  const brands = computed(() => {return brandStore.brands});
+ const totPages = computed(() => {return brandStore.totalPages});
+
+ const currentPage = ref(1);
+
+ const nextPage = () => {
+    if(currentPage.value < totPages.value){
+        currentPage.value ++;
+        brandStore.fetchBrandsByPage(currentPage.value);
+    }
+}
+
+const previousPage = () => {
+    if (currentPage.value > 1){
+        currentPage.value --;
+        brandStore.fetchBrandsByPage(currentPage.value);
+    }
+}
+
+const handleSelectedPage = (page) => {
+    currentPage.value = page
+    brandStore.fetchBrandsByPage(currentPage.value);
+}
  
  const cleanQuery = () => {
      Object.assign(brand, { ...defaultBrand});
@@ -45,6 +70,6 @@
  };
  
  onMounted(() => {
-     brandStore.fetchAllBrands();
+     brandStore.fetchBrandsByPage(currentPage.value);
  });
  </script>

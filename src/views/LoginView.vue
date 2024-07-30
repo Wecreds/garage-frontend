@@ -19,7 +19,6 @@ const getUserInfo = async () => {
         const authToken = localStorage.getItem('psg_auth_token');
         const passageUser = new PassageUser(authToken);
         const user = await passageUser.userInfo(authToken);
-        console.log(user);
         if (user) {
             await authStore.setToken(authToken);
             router.push({ name: 'home' })
